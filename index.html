@@ -283,17 +283,61 @@
       </div>
       <div class="projects-list">
 
-        <a href="https://github.com/kjl23e/Chess" target="_blank" class="project-item">
+        <div class="project-item">
           <span class="proj-idx">01 —</span>
           <div>
+            <div class="proj-name">Linux Kernel Elevator Scheduler</div>
+            <p class="proj-desc">A concurrent elevator scheduling algorithm implemented as a Linux kernel module, with three custom system calls added to a self-compiled Linux 6.16 kernel. Uses kthreads, mutexes, and kernel linked lists to manage concurrent passenger requests, and exposes real-time elevator state and statistics to user-space through a /proc interface.</p>
+            <div class="tag-row">
+              <span class="tag tag-lime">C</span>
+              <span class="tag tag-gray">Linux Kernel</span>
+              <span class="tag tag-gray">Concurrency</span>
+            </div>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+
+        <a href="https://github.com/kjl23e/Chess" target="_blank" class="project-item">
+          <span class="proj-idx">02 —</span>
+          <div>
             <div class="proj-name">Chess</div>
-            <p class="proj-desc">A fully playable chess game built in C#, structured with a clean separation between game logic and UI. Implements piece movement rules, turn management, and board state handling.</p>
+            <p class="proj-desc">A C# WPF chess application implementing standard chess rules, legal move validation, and game-state management, with a clean separation between game logic and UI. Handles check, checkmate, stalemate, castling, promotion, and piece movement logic.</p>
             <div class="tag-row">
               <span class="tag tag-gray">C#</span>
+              <span class="tag tag-gray">WPF</span>
+              <span class="tag tag-gray">XAML</span>
             </div>
           </div>
           <span class="proj-arrow">↗</span>
         </a>
+
+        <div class="project-item">
+          <span class="proj-idx">03 —</span>
+          <div>
+            <div class="proj-name">Medical Practice Management Charting System</div>
+            <p class="proj-desc">A full-stack medical charting application built with .NET MAUI, supporting CRUD operations for patients, physicians, and appointments. Includes sorting algorithms, validation logic, and color-coded UI elements, structured with the MVVM pattern and AppShell navigation.</p>
+            <div class="tag-row">
+              <span class="tag tag-gray">C#</span>
+              <span class="tag tag-gray">.NET MAUI</span>
+              <span class="tag tag-gray">MVVM</span>
+            </div>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+
+        <div class="project-item">
+          <span class="proj-idx">04 —</span>
+          <div>
+            <div class="proj-name">Self-Organizing Binary Search Tree</div>
+            <p class="proj-desc">A template-based BST that automatically restructures itself based on search frequency, using a rotation algorithm to move frequently accessed nodes toward the root. Includes recursive in-order and level-order traversal algorithms and complexity analysis.</p>
+            <div class="tag-row">
+              <span class="tag tag-gray">C++</span>
+              <span class="tag tag-gray">Templates</span>
+              <span class="tag tag-gray">Data Structures</span>
+            </div>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
 
       </div>
     </div>
@@ -324,12 +368,14 @@
           <div class="skill-list">
             <div class="skill-item"><div class="skill-dash"></div>Data Structures, Algorithms and Generic Programming I &amp; II</div>
             <div class="skill-item"><div class="skill-dash"></div>Discrete Math I</div>
-            <div class="skill-item"><div class="skill-dash"></div>Computer Organization I</div>
+            <div class="skill-item"><div class="skill-dash"></div>Computer Organization</div>
             <div class="skill-item"><div class="skill-dash"></div>Full-Stack App Dev with C#</div>
             <div class="skill-item"><div class="skill-dash"></div>Web Apps Dev</div>
-            <div class="skill-item"><div class="skill-dash"></div>Software Engineering I</div>
+            <div class="skill-item"><div class="skill-dash"></div>Software Engineering</div>
             <div class="skill-item"><div class="skill-dash"></div>Operating Systems</div>
             <div class="skill-item"><div class="skill-dash"></div>Programming Secure, Parallel and Distributed Applications</div>
+            <div class="skill-item"><div class="skill-dash"></div>Machine Learning in Biological Problems</div>
+            <div class="skill-item"><div class="skill-dash"></div>Computer Security Fundamentals</div>
           </div>
         </div>
         <div class="skill-cell">
@@ -347,6 +393,7 @@
             <div class="skill-item"><div class="skill-dash"></div>CPU scheduling</div>
             <div class="skill-item"><div class="skill-dash"></div>Virtual memory &amp; paging</div>
             <div class="skill-item"><div class="skill-dash"></div>Concurrency &amp; sync</div>
+            <div class="skill-item"><div class="skill-dash"></div>Kernel modules &amp; syscalls</div>
             <div class="skill-item"><div class="skill-dash"></div>Networking protocols</div>
             <div class="skill-item"><div class="skill-dash"></div>Relational databases</div>
           </div>

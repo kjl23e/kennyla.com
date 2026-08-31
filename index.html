@@ -50,6 +50,20 @@
       transition: color 0.15s;
     }
     .nav-links a:hover { color: var(--lime); }
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 22px; padding: 0; position: relative; z-index: 101;
+    }
+    .nav-toggle span {
+      display: block; position: absolute; left: 0; width: 100%; height: 2px;
+      background: var(--text); transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 10px; }
+    .nav-toggle span:nth-child(3) { top: 20px; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
     #hero {
       min-height: 100vh; padding: 130px 3rem 5rem;
@@ -207,17 +221,54 @@
 
     @media (max-width: 700px) {
       nav { padding: 0 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      #hero { padding: 100px 1.5rem 5rem; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 64px; left: 0; right: 0;
+        flex-direction: column; align-items: center; gap: 0;
+        background: rgba(10,10,10,0.98); backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+      }
+      .nav-links.open { max-height: 300px; }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 1.1rem 0; }
+      #hero { padding: 110px 1.5rem 4rem; align-items: center; text-align: center; }
       .hero-bg-num { display: none; }
+      #hero img {
+        position: static !important; transform: none !important;
+        width: 140px !important; height: 140px !important;
+        margin: 0 auto 2rem;
+      }
+      .hero-content { display: flex; flex-direction: column; align-items: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-foot { display: none; }
       .section-wrap { padding: 4rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .project-item { grid-template-columns: 48px 1fr 28px; gap: 1rem; }
+      .project-item { grid-template-columns: 40px 1fr; gap: 0.75rem 1rem; }
+      .proj-arrow { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
       .contact-block { grid-template-columns: 1fr; padding: 2.25rem 1.75rem; }
-      .contact-links { flex-direction: row; }
-      .hero-foot { left: 1.5rem; }
+      .contact-links { flex-direction: column; width: 100%; }
+      .contact-link { width: 100%; }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var links = document.querySelector('.nav-links');
+      toggle.addEventListener('click', function () {
+        toggle.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          toggle.classList.remove('open');
+          links.classList.remove('open');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -229,6 +280,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </nav>
 
   <div id="hero">
@@ -303,7 +355,7 @@
             <div class="proj-name">Chess</div>
             <p class="proj-desc">A C# WPF chess application implementing standard chess rules, legal move validation, and game-state management, with a clean separation between game logic and UI. Handles check, checkmate, stalemate, castling, promotion, and piece movement logic.</p>
             <div class="tag-row">
-              <span class="tag tag-gray">C#</span>
+              <span class="tag tag-lime">C#</span>
               <span class="tag tag-gray">WPF</span>
               <span class="tag tag-gray">XAML</span>
             </div>
@@ -317,7 +369,7 @@
             <div class="proj-name">Medical Practice Management Charting System</div>
             <p class="proj-desc">A full-stack medical charting application built with .NET MAUI, supporting CRUD operations for patients, physicians, and appointments. Includes sorting algorithms, validation logic, and color-coded UI elements, structured with the MVVM pattern and AppShell navigation.</p>
             <div class="tag-row">
-              <span class="tag tag-gray">C#</span>
+              <span class="tag tag-lime">C#</span>
               <span class="tag tag-gray">.NET MAUI</span>
               <span class="tag tag-gray">MVVM</span>
             </div>
@@ -331,7 +383,7 @@
             <div class="proj-name">Self-Organizing Binary Search Tree</div>
             <p class="proj-desc">A template-based BST that automatically restructures itself based on search frequency, using a rotation algorithm to move frequently accessed nodes toward the root. Includes recursive in-order and level-order traversal algorithms and complexity analysis.</p>
             <div class="tag-row">
-              <span class="tag tag-gray">C++</span>
+              <span class="tag tag-lime">C++</span>
               <span class="tag tag-gray">Templates</span>
               <span class="tag tag-gray">Data Structures</span>
             </div>
